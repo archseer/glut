@@ -1,0 +1,77 @@
+= glut
+
+== Description
+
+Glut bindings for OpenGL. To be used with the opengl gem.
+
+== Features and Problems
+
+* available for Windows, Linux and OS X
+
+== Requirements
+
+* Ruby 1.9.2+
+  *  see {0.7}[https://github.com/archSeer/opengl/tree/0.7] for Ruby 1.8.x compatible branch
+* OpenGL, GLU and (free-)GLUT development files installed
+
+== Install
+
+  gem install glut
+
+== Cross compiling for Windows
+
+Using rake-compiler a cross compiled opengl gem can be build on a Linux or MacOS X
+host for the win32 platform. The generated gem is statically linked against
+libfreeglut. Freeglut is downloaded and compiled from the sources.
+There are no runtime dependencies to any but the standard Windows
+DLLs.
+
+Install mingw32 or w64 using the instructions in rake-compiler's README.
+For Debian/Ubuntu it is <tt>apt-get install gcc-mingw-w64</tt> .
+
+Download and cross compile ruby 1.9 for win32 with:
+
+  rake-compiler cross-ruby VERSION=1.9.3-p0
+
+Download and cross compile opengl for win32:
+
+  rake cross native gem
+
+or with custom versions:
+
+  rake cross native gem RUBY_CC_VERSION=1.9.3 LIBFREEGLUT_VERSION=2.8.0
+
+If everything works, there should be ruby-opengl-VERSION-x86-mingw32.gem in the pkg
+directory.
+
+
+== License
+
+(The MIT License)
+
+Copyright (c) Blaž Hrastnik (current maintainer)
+Copyright (c) Eric Hodel    (current maintainer)
+Copyright (c) Alain Hoang   (previous maintainer)
+Copyright (c) Jan Dvorak    (contributor)
+Copyright (c) Minh Thu Vo   (contributor)
+Copyright (c) James Adam    (contributor)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

@@ -1,0 +1,16 @@
+.autotest
+.gemtest
+.gitignore
+History.rdoc
+MIT-LICENSE
+Manifest.txt
+README.rdoc
+Rakefile
+Rakefile.cross
+ext/glut/common.h
+ext/glut/extconf.rb
+ext/glut/glut.c
+ext/glut/glut_callbacks.c
+ext/glut/glut_ext.c
+lib/glut.rb
+lib/glut/dummy.rb

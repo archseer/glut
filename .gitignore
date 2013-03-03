@@ -1,0 +1,6 @@
+*.swp
+/TAGS
+/lib/glut/*.so
+/lib/glut/*.bundle
+/pkg
+/tmp
