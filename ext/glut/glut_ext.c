@@ -16,6 +16,20 @@
 
 #include "common.h"
 
+/*
+ * Process loop function, see freeglut_main.c
+ */
+GLUT_SIMPLE_FUNCTION(MainLoopEvent)
+GLUT_SIMPLE_FUNCTION(LeaveMainLoop)
+GLUT_SIMPLE_FUNCTION(Exit)
+
+/*
+ * Window management functions, see freeglut_window.c
+ */
+GLUT_SIMPLE_FUNCTION(FullScreenToggle)
+GLUT_SIMPLE_FUNCTION(LeaveFullScreen)
+
+/* Initialization functions */
 static VALUE
 glut_InitContextVersion(obj,majorVersion,minorVersion)
 VALUE obj,majorVersion,minorVersion;
@@ -43,6 +57,16 @@ VALUE obj,profile;
 void Init_glut_ext() {
 	VALUE mGlut = rb_path2class("Glut");
 
+	/* Process loop functions */
+	rb_define_module_function(mGlut, "glutMainLoopEvent", glut_MainLoopEvent, 0);
+	rb_define_module_function(mGlut, "glutLeaveMainLoop", glut_LeaveMainLoop, 0);
+	rb_define_module_function(mGlut, "glutExit", glut_Exit, 0);
+
+	/* Window management functions */
+	rb_define_module_function(mGlut, "glutFullScreenToggle", glut_FullScreenToggle, 0)
+	rb_define_module_function(mGlut, "glutLeaveFullScreen", glut_LeaveFullScreen, 0)
+
+	/* Initialization functions */
 	rb_define_module_function(mGlut, "glutInitContextVersion", glut_InitContextVersion, 2);
 	rb_define_module_function(mGlut, "glutInitContextFlags", glut_InitContextFlags, 1);
 	rb_define_module_function(mGlut, "glutInitContextFlags", glut_InitContextFlags, 1);
