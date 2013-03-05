@@ -2,7 +2,7 @@
 
 == Description
 
-Glut bindings for OpenGL. To be used with the opengl gem.
+Glut bindings for OpenGL. To be used with the {opengl}[https://github.com/larskanis/opengl] gem.
 
 == Features and Problems
 
@@ -12,7 +12,7 @@ Glut bindings for OpenGL. To be used with the opengl gem.
 
 * Ruby 1.9.2+
   *  see {0.7}[https://github.com/archSeer/opengl/tree/0.7] for Ruby 1.8.x compatible branch
-* OpenGL, GLU and (free-)GLUT development files installed
+* (free-)GLUT development files installed
 
 == Install
 
