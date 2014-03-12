@@ -31,24 +31,21 @@ GLUT_SIMPLE_FUNCTION(LeaveFullScreen)
 
 /* Initialization functions */
 static VALUE
-glut_InitContextVersion(obj,majorVersion,minorVersion)
-VALUE obj,majorVersion,minorVersion;
+glut_InitContextVersion(VALUE obj, VALUE majorVersion, VALUE minorVersion)
 {
 	glutInitContextVersion(NUM2INT(majorVersion), NUM2INT(minorVersion));
 	return Qnil;
 }
 
 static VALUE
-glut_InitContextFlags(obj,flags)
-VALUE obj,flags;
+glut_InitContextFlags(VALUE obj, VALUE flags)
 {
 	glutInitContextFlags(NUM2INT(flags));
 	return Qnil;
 }
 
 static VALUE
-glut_InitContextProfile(obj,profile)
-VALUE obj,profile;
+glut_InitContextProfile(VALUE obj, VALUE profile)
 {
 	glutInitContextProfile(NUM2INT(profile));
 	return Qnil;
@@ -84,6 +81,4 @@ void Init_glut_ext() {
 	/* Flags for glutInitContextProfile */
 	rb_define_const(mGlut, "GLUT_CORE_PROFILE", INT2NUM(GLUT_CORE_PROFILE));
 	rb_define_const(mGlut, "GLUT_COMPATIBILITY_PROFILE", INT2NUM(GLUT_COMPATIBILITY_PROFILE));
-
-	
 }
