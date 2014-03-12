@@ -9,7 +9,7 @@ require 'uri'
 require 'rbconfig'
 require 'pathname'
 
-ENV['RUBY_CC_VERSION'] ||= '1.9.3'
+ENV['RUBY_CC_VERSION'] ||= '1.9.3:2.0.0'
 
 # Cross-compilation constants
 COMPILE_HOME               = Pathname( "build" ).expand_path
@@ -34,7 +34,7 @@ end
 
 
 # Fetch libfreeglut tarball
-LIBFREEGLUT_VERSION            = ENV['LIBFREEGLUT_VERSION'] || '2.8.0'
+LIBFREEGLUT_VERSION            = ENV['LIBFREEGLUT_VERSION'] || '2.8.1'
 LIBFREEGLUT_SOURCE_URI         = URI( "http://downloads.sourceforge.net/project/freeglut/freeglut/#{LIBFREEGLUT_VERSION}/freeglut-#{LIBFREEGLUT_VERSION}.tar.gz" )
 LIBFREEGLUT_TARBALL            = STATIC_SOURCESDIR + File.basename( LIBFREEGLUT_SOURCE_URI.path )
 STATIC_LIBFREEGLUT_BUILDDIR    = STATIC_BUILDDIR + LIBFREEGLUT_TARBALL.basename(".tar.gz")
