@@ -1,4 +1,5 @@
-#-*-ruby-*-
+# -*- coding: UTF-8 -*-
+# -*-ruby-*-
 #
 # Copyright (C) 2006 John M. Gabriele <jmg3000@gmail.com>
 # Copyright (C) Eric Hodel <drbrain@segment7.net>
@@ -16,7 +17,6 @@
 
 require 'hoe'
 require 'rake/extensiontask'
-load 'Rakefile.cross'
 
 hoe = Hoe.spec 'glut' do
   developer 'Eric Hodel', 'drbrain@segment7.net'
@@ -43,10 +43,9 @@ Rake::ExtensionTask.new 'glut', hoe.spec do |ext|
   ext.lib_dir = 'lib/glut'
 
   ext.cross_compile = true
-  ext.cross_platform = ['i386-mingw32']
+  ext.cross_platform = ['i386-mingw32', 'x64-mingw32']
   ext.cross_config_options += [
-    "--with-installed-include=#{STATIC_INSTALLDIR}/include",
-    "--with-installed-lib=#{STATIC_INSTALLDIR}/lib",
+    "--enable-win32-cross",
   ]
 end
 

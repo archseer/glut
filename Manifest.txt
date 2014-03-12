@@ -1,12 +1,12 @@
 .autotest
 .gemtest
 .gitignore
+.travis.yml
 History.rdoc
 MIT-LICENSE
 Manifest.txt
 README.rdoc
 Rakefile
-Rakefile.cross
 ext/glut/common.h
 ext/glut/extconf.rb
 ext/glut/glut.c

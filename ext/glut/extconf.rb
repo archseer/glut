@@ -13,10 +13,33 @@ def have_framework(fw, &b)
   end
 end unless respond_to? :have_framework
 
-if ENV['CROSS_COMPILING']
-  dir_config("installed")
+if enable_config('win32-cross')
+  require "mini_portile"
+
+  LIBFREEGLUT_VERSION = ENV['LIBFREEGLUT_VERSION'] || '2.8.1'
+  LIBFREEGLUT_SOURCE_URI = "http://downloads.sourceforge.net/project/freeglut/freeglut/#{LIBFREEGLUT_VERSION}/freeglut-#{LIBFREEGLUT_VERSION}.tar.gz"
+
+  recipe = MiniPortile.new("libglut", LIBFREEGLUT_VERSION)
+  recipe.files = [LIBFREEGLUT_SOURCE_URI]
+  recipe.target = portsdir = File.expand_path('../../../ports', __FILE__)
+  # Prefer host_alias over host in order to use i586-mingw32msvc as
+  # correct compiler prefix for cross build, but use host if not set.
+  recipe.host = RbConfig::CONFIG["host_alias"].empty? ? RbConfig::CONFIG["host"] : RbConfig::CONFIG["host_alias"]
+  recipe.configure_options = [
+    "--enable-static",
+    "--target=#{recipe.host}",
+    "--host=#{recipe.host}",
+  ]
+
+  checkpoint = File.join(portsdir, "#{recipe.name}-#{recipe.version}-#{recipe.host}.installed")
+  unless File.exist?(checkpoint)
+    recipe.cook
+    FileUtils.touch checkpoint
+  end
+  recipe.activate
 
   $defs.push "-DFREEGLUT_EXPORTS"
+  dir_config('freeglut', "#{recipe.path}/include", "#{recipe.path}/lib")
 
   # libfreeglut is linked to gdi32 and winmm
   have_library( 'gdi32', 'CreateDC' ) && append_library( $libs, 'gdi32' )

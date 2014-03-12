@@ -1,4 +1,9 @@
-require 'glut/glut'
+begin
+  RUBY_VERSION =~ /(\d+.\d+)/
+  require "glut/#{$1}/glut"
+rescue LoadError
+  require 'glut/glut'
+end
 
 include Glut
 
