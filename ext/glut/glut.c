@@ -21,6 +21,8 @@
  */
 
 #include "common.h"
+extern void *rb_thread_call_without_gvl(void *(*func)(void *), void *data1,
+         rb_unblock_function_t *ubf, void *data2);
 
 static VALUE menu_callback = Qnil;
 static ID call_id; /* 'call' method id */
@@ -115,15 +117,15 @@ VALUE obj,arg1,arg2;
 	return Qnil;
 }
 
-VALUE glut_MainLoop0(void *ignored) {
+void *glut_MainLoop0(void *ignored) {
   glutMainLoop();
 
-  return Qnil; /* never reached */
+  return NULL; /* never reached */
 }
 
 static VALUE
 glut_MainLoop(void) {
-  rb_thread_blocking_region(glut_MainLoop0, NULL, NULL, NULL);
+  rb_thread_call_without_gvl(glut_MainLoop0, NULL, NULL, NULL);
 
   return Qnil; /* never reached */
 }
