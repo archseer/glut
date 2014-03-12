@@ -63,13 +63,13 @@ void Init_glut_ext() {
 	rb_define_module_function(mGlut, "glutExit", glut_Exit, 0);
 
 	/* Window management functions */
-	rb_define_module_function(mGlut, "glutFullScreenToggle", glut_FullScreenToggle, 0)
-	rb_define_module_function(mGlut, "glutLeaveFullScreen", glut_LeaveFullScreen, 0)
+	rb_define_module_function(mGlut, "glutFullScreenToggle", glut_FullScreenToggle, 0);
+	rb_define_module_function(mGlut, "glutLeaveFullScreen", glut_LeaveFullScreen, 0);
 
 	/* Initialization functions */
 	rb_define_module_function(mGlut, "glutInitContextVersion", glut_InitContextVersion, 2);
 	rb_define_module_function(mGlut, "glutInitContextFlags", glut_InitContextFlags, 1);
-	rb_define_module_function(mGlut, "glutInitContextFlags", glut_InitContextFlags, 1);
+	rb_define_module_function(mGlut, "glutInitContextProfile", glut_InitContextProfile, 1);
 
 	/* Context-related flags */
 	rb_define_const(mGlut, "GLUT_INIT_MAJOR_VERSION", INT2NUM(GLUT_INIT_MAJOR_VERSION));
