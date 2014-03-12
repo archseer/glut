@@ -45,7 +45,8 @@ Rake::ExtensionTask.new 'glut', hoe.spec do |ext|
   ext.cross_compile = true
   ext.cross_platform = ['i386-mingw32']
   ext.cross_config_options += [
-    "--with-installed-dir=#{STATIC_INSTALLDIR}",
+    "--with-installed-include=#{STATIC_INSTALLDIR}/include",
+    "--with-installed-lib=#{STATIC_INSTALLDIR}/lib",
   ]
 end
 

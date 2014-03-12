@@ -24,10 +24,10 @@ if ENV['CROSS_COMPILING']
 end
 
 ok =
-   have_library('glut32.lib',   'gluSolidTeapot') ||
-   have_library('glut', 'glutSolidTeapot') ||
-   have_framework('GLUT') &&
-   have_framework('Cocoa')
+  (have_library('opengl32.lib', 'glVertex3d') && have_library('glut32.lib',   'gluSolidTeapot')) ||
+  (have_library('opengl32') && have_library('glut')) ||
+  (have_library('GL',   'glVertex3d') && have_library('glut', 'glutSolidTeapot')) ||
+  (have_framework('OpenGL') && have_framework('GLUT') && have_framework('Cocoa'))
 
 ok &&=
   have_header('GL/glut.h') ||
