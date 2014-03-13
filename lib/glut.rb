@@ -5,8 +5,6 @@ rescue LoadError
   require 'glut/glut'
 end
 
-include Glut
-
 # (Glut.)glutInit -> GLUT.Init
 # (Glut::)GLUT_RGBA -> GLUT::RGBA
 module GLUT
