@@ -34,6 +34,9 @@ if enable_config('win32-cross')
   checkpoint = File.join(portsdir, "#{recipe.name}-#{recipe.version}-#{recipe.host}.installed")
   unless File.exist?(checkpoint)
     recipe.cook
+    # --disable-static can not be used since it breaks the freeglut build,
+    # but to enforce static linking, we delete the import lib.
+    FileUtils.rm File.join(recipe.path, "lib", "libglut.dll.a")
     FileUtils.touch checkpoint
   end
   recipe.activate
