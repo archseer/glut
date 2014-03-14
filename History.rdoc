@@ -1,3 +1,10 @@
-=== 8.1.0
+=== 8.2.0 / 2014-03-14
+
+* Add x64-mingw platform for cross build and add ruby-2.0.0 to binary gems.
+* Update to freeglut-2.8.1 for cross build.
+* Don't pollute the global namespace. Use GLUT namespace.
+* Replace deprecated rb_thread_blocking_region() by rb_thread_call_with_gvl()
+
+=== 8.1.0 / 2013-03-03
 
 * Moved glut into a standalone gem.
