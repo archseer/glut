@@ -213,12 +213,12 @@ static void *
 glut_KeyboardUpFuncCallback(struct callback_args *args) {
 	VALUE func = rb_ary_entry(KeyboardUpFunc, glutGetWindow());
 #if HAVE_SINGLE_BYTE_STRINGS
-	VALUE key = rb_str_new((char *)args->arg0.key, 1);
+	VALUE key = rb_str_new((char *)&args->arg0.key, 1);
 #else
 	VALUE key = UINT2NUM((unsigned char)args->arg0.key);
 #endif
-	VALUE x = INT2FIX((int)args->arg1.x);
-	VALUE y = INT2FIX((int)args->arg2.y);
+	VALUE x = INT2FIX(args->arg1.x);
+	VALUE y = INT2FIX(args->arg2.y);
 
 	if (!NIL_P(func))
 		rb_funcall(func, call_id, 3, key, x, y);
