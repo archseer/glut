@@ -1,3 +1,8 @@
+=== 8.2.1 / 2014-10-06
+
+* Add ruby-2.1 to binary windows gems.
+* Fix segmentation fault in glutKeyboardUpFunc callback
+
 === 8.2.0 / 2014-03-14
 
 * Add x64-mingw platform for cross build and add ruby-2.0.0 to binary gems.
