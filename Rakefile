@@ -31,7 +31,7 @@ hoe = Hoe.spec 'glut' do
   self.history_file = 'History.rdoc'
   self.extra_rdoc_files = FileList['*.rdoc']
 
-  extra_dev_deps << ['rake-compiler', '~> 0.7', '>= 0.7.9']
+  extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.1']
 
   self.spec_extras = {
     :extensions            => %w[ext/glut/extconf.rb],
