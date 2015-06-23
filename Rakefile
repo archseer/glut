@@ -61,4 +61,12 @@ ENV['RUBY_CC_VERSION'].to_s.split(':').each do |ruby_version|
   end
 end
 
+desc "Build windows binary gems per rake-compiler-dock."
+task "gem:windows" do
+  require "rake_compiler_dock"
+  RakeCompilerDock.sh <<-EOT
+    rake cross native gem MAKE='nice make -j`nproc`' RUBY_CC_VERSION=1.9.3:2.0.0:2.1.6:2.2.2
+  EOT
+end
+
 task :test => :compile
