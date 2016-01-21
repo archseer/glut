@@ -26,6 +26,8 @@
 #include "extconf.h"
 
 #ifdef HAVE_GLUT_GLUT_H
+#include <GLUT/glut.h>
+#else
 #include <GLUT/freeglut.h>
 #endif
 

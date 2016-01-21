@@ -69,16 +69,32 @@ void Init_glut_ext() {
 	rb_define_module_function(mGlut, "glutInitContextProfile", glut_InitContextProfile, 1);
 
 	/* Context-related flags */
+#ifdef GLUT_INIT_MAJOR_VERSION
 	rb_define_const(mGlut, "GLUT_INIT_MAJOR_VERSION", INT2NUM(GLUT_INIT_MAJOR_VERSION));
+#endif
+#ifdef GLUT_INIT_MINOR_VERSION
 	rb_define_const(mGlut, "GLUT_INIT_MINOR_VERSION", INT2NUM(GLUT_INIT_MINOR_VERSION));
+#endif
+#ifdef GLUT_INIT_FLAGS
 	rb_define_const(mGlut, "GLUT_INIT_FLAGS", INT2NUM(GLUT_INIT_FLAGS));
+#endif
+#ifdef GLUT_INIT_PROFILE
 	rb_define_const(mGlut, "GLUT_INIT_PROFILE", INT2NUM(GLUT_INIT_PROFILE));
+#endif
 
 	/* Flags for glutInitContextFlags */
+#ifdef GLUT_FORWARD_COMPATIBLE
 	rb_define_const(mGlut, "GLUT_FORWARD_COMPATIBLE", INT2NUM(GLUT_FORWARD_COMPATIBLE));
+#endif
+#ifdef GLUT_DEBUG
 	rb_define_const(mGlut, "GLUT_DEBUG", INT2NUM(GLUT_DEBUG));
+#endif
 
 	/* Flags for glutInitContextProfile */
+#ifdef GLUT_CORE_PROFILE
 	rb_define_const(mGlut, "GLUT_CORE_PROFILE", INT2NUM(GLUT_CORE_PROFILE));
+#endif
+#ifdef GLUT_COMPATIBILITY_PROFILE
 	rb_define_const(mGlut, "GLUT_COMPATIBILITY_PROFILE", INT2NUM(GLUT_COMPATIBILITY_PROFILE));
+#endif
 }
