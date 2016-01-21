@@ -1,3 +1,8 @@
+=== 8.2.2 / 2016-01-21
+
+* Add ruby-2.2 and 2.3 to binary windows gems.
+* Fix compilation on OS-X. Github #2
+
 === 8.2.1 / 2014-10-06
 
 * Add ruby-2.1 to binary windows gems.
