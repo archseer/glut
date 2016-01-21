@@ -32,6 +32,8 @@ hoe = Hoe.spec 'glut' do
   self.extra_rdoc_files = FileList['*.rdoc']
 
   extra_dev_deps << ['rake-compiler', '~> 0.9', '>= 0.9.1']
+  extra_dev_deps << ['rake-compiler-dock', '~> 0.5.0']
+  extra_dev_deps << ['mini_portile2', '~> 2.1']
 
   self.spec_extras = {
     :extensions            => %w[ext/glut/extconf.rb],
@@ -65,7 +67,7 @@ desc "Build windows binary gems per rake-compiler-dock."
 task "gem:windows" do
   require "rake_compiler_dock"
   RakeCompilerDock.sh <<-EOT
-    rake cross native gem MAKE='nice make -j`nproc`' RUBY_CC_VERSION=1.9.3:2.0.0:2.1.6:2.2.2
+    rake cross native gem MAKE='nice make -j`nproc`' RUBY_CC_VERSION=2.3.0:2.2.2:2.1.6:2.0.0:1.9.3
   EOT
 end
 

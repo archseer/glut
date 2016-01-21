@@ -14,7 +14,9 @@ def have_framework(fw, &b)
 end unless respond_to? :have_framework
 
 if enable_config('win32-cross')
-  require "mini_portile"
+  require "rubygems"
+  gem "mini_portile2", "~> 2.0"
+  require "mini_portile2"
 
   LIBFREEGLUT_VERSION = ENV['LIBFREEGLUT_VERSION'] || '2.8.1'
   LIBFREEGLUT_SOURCE_URI = "http://downloads.sourceforge.net/project/freeglut/freeglut/#{LIBFREEGLUT_VERSION}/freeglut-#{LIBFREEGLUT_VERSION}.tar.gz"
