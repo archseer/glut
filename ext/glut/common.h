@@ -25,14 +25,16 @@
 #include <ruby.h>
 #include "extconf.h"
 
-#ifdef HAVE_GLUT_GLUT_H
-#include <GLUT/glut.h>
-#else
-#include <GLUT/freeglut.h>
+#ifdef HAVE_GL_FREEGLUT_H
+#include <GL/freeglut.h>
 #endif
 
 #ifdef HAVE_GL_GLUT_H
-#include <GL/freeglut.h>
+#include <GL/glut.h>
+#endif
+
+#ifdef HAVE_GLUT_GLUT_H
+#include <GLUT/glut.h>
 #endif
 
 #ifndef GLUTCALLBACK

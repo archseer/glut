@@ -56,6 +56,7 @@ ok =
   (have_framework('OpenGL') && have_framework('GLUT') && have_framework('Cocoa'))
 
 ok &&=
+  have_header('GL/freeglut.h') ||
   have_header('GL/glut.h') ||
   have_header('GLUT/glut.h') # OS X
 
