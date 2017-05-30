@@ -1,3 +1,8 @@
+=== 8.3.0 / 2017-05-30
+
+* Add ruby-2.4 to binary windows gems and remove ruby-1.9.
+* Add support for source gems on RubyInstaller-2.4 and MSYS2.
+
 === 8.2.2 / 2016-01-21
 
 * Add ruby-2.2 and 2.3 to binary windows gems.
