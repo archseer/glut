@@ -38,6 +38,7 @@ hoe = Hoe.spec 'glut' do
   self.spec_extras = {
     :extensions            => %w[ext/glut/extconf.rb],
     :required_ruby_version => '>= 1.9.2',
+    :metadata              => {'msys2_mingw_dependencies' => 'freeglut'},
   }
 end
 
@@ -49,6 +50,10 @@ Rake::ExtensionTask.new 'glut', hoe.spec do |ext|
   ext.cross_config_options += [
     "--enable-win32-cross",
   ]
+  ext.cross_compiling do |spec|
+    # The fat binary gem doesn't depend on the freeglut package, since it bundles the library.
+    spec.metadata.delete('msys2_mingw_dependencies')
+  end
 end
 
 
