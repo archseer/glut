@@ -53,7 +53,7 @@ end
 
 ok =
   (have_library('opengl32.lib', 'glVertex3d') && have_library('glut32.lib',   'gluSolidTeapot')) ||
-  (have_library('opengl32') && have_library('glut')) ||
+  (have_library('opengl32') && (have_library('glut') || have_library('freeglut'))) ||
   (have_library('GL',   'glVertex3d') && have_library('glut', 'glutSolidTeapot')) ||
   (have_framework('OpenGL') && have_framework('GLUT') && have_framework('Cocoa'))
 
